@@ -23,10 +23,8 @@ async function getUser(data, cancelToken) {
     })
 }
 
-async function postUser(data, cancelToken) {
-    return await axios.post(data.url, data.data, {
-        cancelToken: cancelToken.token
-    })
+async function postUser(data) {
+    return await axios.post(BASE_URL, data.data)
 }
 
 async function putUser(data) {

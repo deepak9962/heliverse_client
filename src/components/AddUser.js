@@ -107,7 +107,7 @@ function AddUser({ userFormData, openUserForm, setUserForm }) {
 
       const data = {
         data: userData,
-        id: userFormData._id
+        id: userFormData !== undefined ? userFormData._id : ''
       }
 
       if (userFormData) {
@@ -128,7 +128,7 @@ function AddUser({ userFormData, openUserForm, setUserForm }) {
           setError(true)
         })
       } else {
-        postUser(data, cancelToken).then(res => {
+        postUser(data).then(res => {
           if (res.data !== undefined) {
             setMessage(res.data.message)
           }
@@ -142,6 +142,7 @@ function AddUser({ userFormData, openUserForm, setUserForm }) {
         }).catch(e => {
           if (axios.isCancel(e)) return
           setError(true)
+          console.log(e.message);
         })
       }
 
