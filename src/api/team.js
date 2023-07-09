@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:8080/api/team"
+const BASE_URL = "https://api-heliverse.onrender.com/api/team"
 
 function baseUrl() {
     return BASE_URL
